@@ -2,7 +2,15 @@
 body {
   text-align: center;
   display: block;
+  font-family: Titillium Web;
+  background-color: WhiteSmoke;
+}
+#warn {
+  color: red;
+}
+h5 {
+  text-align: right;
 }
 svg {
-  background-color: black
+  background-image: url(http://interiii.com/wp-content/uploads/2014/10/lodging-building_-lobby-1024x682.jpg)
 }

@@ -6,24 +6,28 @@
   </head>
   <body>
       <svg width="75%" viewBox="0 0 2160 1440">
-        <rect x="100" y="700" width="500" height="650" fill="red"/>
-        <circle cx="340" cy="760" r="50" fill="gray" id="key"/>
-        <line x1="340" y1="711" x2="340" y2="810" stroke-width="10" stroke="black" id="key"/>
+        <rect x="100" y="700" width="500" height="650" fill="red" />
+        <circle cx="340" cy="760" r="50" fill="gray" />
+        <line x1="340" y1="711" x2="340" y2="810" stroke-width="10" stroke="black" id="key" />
         <rect x="115" y="839" width="470" height="430" fill ="black" opacity="0.25" />
-        <rect x="120" y="850" height="100" width="460" fill="FloralWhite"/>
-        <rect x="295" y="949" width="100" height="300" fill="FloralWhite" id="pull"/>
+        <rect x="120" y="850" height="100" width="460" fill="FloralWhite" id="pull2" />
+        <rect x="295" y="949" width="100" height="300" fill="FloralWhite" id="pull" />
         <text x="195" y="1320" font-size="60" font-family="Titillium Web" fill="white">S  I  M  P  L  E  X </text>
-        <text x="156" y="925" font-size="70" font-family="Titillium Web" fill="DarkRed" >PULL DOWN</text>
+        <text x="156" y="925" font-size="70" font-family="Titillium Web" fill="DarkRed" id="pull3">PULL DOWN</text>
         <text x="130" y="790" font-size="60" font-family="Titillium Web" fill="white">FIRE</text>
         <text x="400" y="790" font-size="60" font-family="Titillium Web" fill="white">ALARM</text>
-        <circle cx="340" cy="300" r="250" fill="white" />
+        <circle cx="340" cy="300" r="250" fill="white" id="detector" />
         <circle cx="340" cy="300" r="200" fill="FloralWhite" opacity="0.5" />
         <line x1="175" y1="200" x2="505" y2="200" stroke-width="10" stroke="gray" />
         <line x1="165" y1="250" x2="515" y2="250" stroke-width="10" stroke="gray" />
         <line x1="155" y1="300" x2="525" y2="300" stroke-width="10" stroke="gray" />
         <line x1="165" y1="350" x2="515" y2="350" stroke-width="10" stroke="gray" />
-        <circle cx="340" cy="450" r="30" fill="darkred">
-          <animate attributeName="fill" from="darkred" to="red" dur="0.5" repeatCount="indefinite" />
+        <circle cx="340" cy="450" r="30" fill="red">
+          <animate attributeName="fill" from="red" to="darkred" dur="0.5" repeatCount="indefinite" />
+          <animate attributeName="fill" from="red" to="red" dur="0.5" repeatCount="indefinite" begin="pull.click" end="key.click" />
+          <animate attributeName="fill" from="red" to="red" dur="0.5" repeatCount="indefinite" begin="pull2.click" end="key.click" />
+          <animate attributeName="fill" from="red" to="red" dur="0.5" repeatCount="indefinite" begin="pull3.click" end="key.click" />
+          <animate attributeName="fill" from="red" to="red" dur="0.5" repeatCount="indefinite" begin="detector.mouseover" end="key.click" />
         </circle>
         <rect x="1000" y="150" width="1000" height="900" fill="red" />
         <ellipse cx="1500" cy="1050" rx="500" ry="150" fill="red" />
@@ -35,7 +39,10 @@
           <animate attributeName="fill" from="darkred" to="red" dur="0.5" repeatCount="indefinite" />
         </circle>
         <ellipse cx="1500" cy="825" rx="500" ry="150" fill="white" opacity="0">
-          <animate attributeName="opacity" from="0" to="0.8" dur="0.5" repeatCount="indefinite" begin="pull.click" end="key.click"/>
+          <animate attributeName="opacity" from="0" to="0.99" dur="0.5" repeatCount="indefinite" begin="pull.click" end="key.click" />
+          <animate attributeName="opacity" from="0" to="0.99" dur="0.5" repeatCount="indefinite" begin="pull2.click" end="key.click" />
+          <animate attributeName="opacity" from="0" to="0.99" dur="0.5" repeatCount="indefinite" begin="pull3.click" end="key.click" />
+          <animate attributeName="opacity" from="0" to="0.99" dur="0.5" repeatCount="indefinite" begin="detector.mouseover" end="key.click" />
         </ellipse>
         <ellipse cx="1500" cy="450" rx=350 ry="200" fill="darkred" />
         <line x1="1500" y1="250" x2="1500" y2="650" stroke-width="10" stroke="red" />
@@ -47,9 +54,14 @@
         <line x1="1100" y1="550" x2="2000" y2="550" stroke-width="15" stroke="red" />
         <line x1="1100" y1="600" x2="2000" y2="600" stroke-width="15" stroke="red" />
       </svg>
-      <h1>FIRE ALARM SIMULATOR></h1>
-      <p>The above SVG canvas simulates a Simplex fire alarm system. This simplex consists of two activation devices and one alert device. The first of two activation devices is a Simplex "T-Bar" pull station. To activate the system, click on the bottom half of the pull bar. To reset the system, click the lock above the handle. The second activation devices is a Smoke Detector. Hover your mouse over the detector to set off the system. For the alert device, a Simplex TrueAlert ES horn-strobe combo is in use.</p>
-      <p>The above animation is inspired by real-life fire alarm components. The pull station is modeled after the one seen <a href="https://upload.wikimedia.org/wikipedia/commons/9/9f/Simplex_pull_station.jpg">here</a>. The a photo of a real Simplex TrueAlert ES can be seen <a href="https://www.ebmag.com/media/k2/items/cache/3fabbd15d209b15ff9c8de779ddbb844_XL.jpg">here</a>. The smoke detector isn't modeled after any smoke detector in particular. My inspiration for creating this piece is my interest in fire alarms. I based this simulation on a scratch project I was fond of which was very similar to this one.
+      <h1>FIRE ALARM SIMULATOR</h1>
+      <h3>By Joshua Tomoyasu</h3>
+      <p>The above SVG canvas simulates a Simplex fire alarm system. The system consists of two activation devices and one alert device. The first of two activation devices is a Simplex "T-Bar" pull station. To activate the system using the pull station, simply click on the the pull bar! The second activation device is a smoke detector. Hover your mouse over the detector to set off the system. To reset the system, click the lock on the pull station located directly above the handle with your imaginary Simplex CAT30 key! For the alert device, a Simplex TrueAlert ES horn-strobe combo is in use.</p>
+      <p>The above animation is inspired by real-life fire alarm components. The pull station is modeled after the one seen <a href="https://upload.wikimedia.org/wikipedia/commons/9/9f/Simplex_pull_station.jpg">here</a>. The a photo of a real Simplex TrueAlert ES can be seen <a href="https://www.ebmag.com/media/k2/items/cache/3fabbd15d209b15ff9c8de779ddbb844_XL.jpg">here</a>. The smoke detector isn't modeled after any smoke detector in particular. My inspiration for creating this piece is my interest in fire alarms. I based this simulation on a scratch project I was fond of which was very similar to this one.</p>
+      <h5 id="warn">WARNING: THIS SIMULATION CONTAINS FLASHING IMAGES</h5>
+      <h5> (C) Joshua Tomoyasu 2016
+      </h5>
+      <h5> ALL RIGHTS (EXCEPT FOR THE BACKGROUND IMAGE WHICH I toOK FROM GOOGLE IMAGES) RESERVED
     <h1></h1>
   </body>
 </html>
